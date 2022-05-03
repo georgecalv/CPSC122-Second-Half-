@@ -1,15 +1,14 @@
 /*
-Class: CPSC 122-01
 Name: George Calvert
-File Name: list.h
+Class: CPSC 122, Section 1
+Project Number: Test 3A 
 Header file for a simple linked list that adds and deletes at the head
-To Build: g++ listTst.cpp list.cpp 
-To Execute: ./a.out
+All traversals are done recursively, either directly or indirectly
 */
 
 
-#ifndef LIST_H
-#define LIST_H
+#ifndef LIST
+#define LIST
 
 typedef int itemType;
 
@@ -29,25 +28,19 @@ class List
    pre: an instance of lists exists
    post: returns true if list is empty, false otherwise
    */ 
-   bool IsEmpty() const;
-
-   /*
-   pre: an instance of list exists
-   post: returns length of the list 
-   */
-   int GetLength() const;
-
-   /*
-   pre: an instance of list exists
-   post: newItem is at the head of the list 
-   */
-   void PutItemH(const itemType item);
+   bool IsEmpty();
 
    /*
    pre: an instance of list exists and is not empty
    post: Returns the contents of the head of the list. 
    */
-   itemType GetItemH() const;
+   itemType GetItemH();
+
+   /*
+   pre: an instance of list exists
+   post: newItem is at the head of the list 
+   */
+   void PutItemH(itemType item);
 
    /*
    pre: an instance of list exists and is not empty
@@ -59,11 +52,26 @@ class List
    pre: an instance of list exists and is not empty
    post: contents of list nodes are displayed on subsequent lines 
    */
-   void Print() const;
+   void Print();
+
+   /*
+   pre: an instance of list exists and is not empty
+   post: contents of list nodes are displayed in reverse  
+   */
+   void PrintRev();
+
+   /*
+   pre: an instance of list exists
+   post: returns length of the list by counting the nodes recursively
+   */
+   int GetLength();
   
- //protected:
  private:
-   int length;   //length of the list
-   node* head;   //point to the first node on the list 
+   //Utility functions to assist recursive traversals of list 
+   void Print(node* cur);
+   void PrintRev(node* cur);
+   void Destructor(node* cur);
+   int GetLength(node* cur);
+   node* head;    
 };
 #endif
