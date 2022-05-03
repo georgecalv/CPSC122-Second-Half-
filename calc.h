@@ -1,7 +1,8 @@
+
 /*
-Name: Paul De Palma
+Name: George Calvert
 Class: CPSC 122, Section 1
-Date Submitted: February 25, 2021
+Date Submitted: April 24, 2022 
 Assignment: N/A 
 Description: Part 2 of Calculator Assignment 
 To Compile: make
@@ -47,7 +48,7 @@ class Calc
   pre: instance of Calc exists
   post: postfix exression displayed
  */
-//   void DisplayPostFix();
+  void DisplayPostFix();
 
   /*
   pre: instance of Calc exists
@@ -58,6 +59,8 @@ class Calc
 
  private:
   /*
+  Note: Use C-string functions, like isalpha, isupper, isdigit 
+        Use charcter notation rather than ascii values, e.g., '(' rather than 40
   pre:  invoked from constructor 
   post: returns true if each character in argv[1] is:
         either: one of the four arithmetic operators
@@ -65,7 +68,7 @@ class Calc
         or: a character digit (0..9)
         or: a left or right parenthsis
         returns false otherwise	
-  */ 
+  */
   bool  CheckTokens();
 
   /*
@@ -135,7 +138,7 @@ class Calc
   post: postFix points to a dynamically declared array holding the postfix version
         of the the input infix expression.
  */
-//   void InFixToPostFix();
+  void InFixToPostFix();
 
   /*
   pre: invoked from infix to post fix function
@@ -149,15 +152,9 @@ class Calc
  */
   bool isOperand(char ch);
 
-//   /*
-//   pre: invoked from constructor 
-//   post: changes numbers to letters
-//  */
-//   void placeVarInFix();
-
 
   char*  inFix;     //null-terminated string that holds infix expression 
-//   char*  postFix;   //null-terminated string that holds postfix expression 
+  char*  postFix;   //null-terminated string that holds postfix expression 
   int*  valueTbl;   //pointer to an array holding variable and expression values 
   int valueIdx;    //index of the next available position in valueTbl
   Stack* stk;

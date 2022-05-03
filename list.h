@@ -1,9 +1,6 @@
 /*
 Class: CPSC 122-01
-Paul De Palma
-GU Username: depalma
-Submitted By: Paul De Palma
-GU Username: depalma
+Name: George Calvert
 File Name: list.h
 Header file for a simple linked list that adds and deletes at the head
 To Build: g++ listTst.cpp list.cpp 
